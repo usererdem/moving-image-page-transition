@@ -21,6 +21,7 @@ const Home = ({ imageDetails, image }) => (
                 <Link to={`/model/erdem-elvan`}>
                   <motion.img
                     whileHover={{ scale: 1.1 }}
+                    exit={{ scale: 1.1 }}
                     transition={transition}
                     src={require("../images/test.jpg")}
                     alt='Erdem Elvan'
