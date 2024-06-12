@@ -11,27 +11,25 @@ const Model = () => {
           <div className='top'>
             <div className='details'>
               <div className='location'>
-                <span>28.538336</span>
-                <span>-81.379234</span>
+                <span>💻 Coder</span>
+                <span>🥐 Baker</span>
               </div>
-              <div className='mua'>MUA: @mylifeascrystall</div>
+              <div className='mua'>SOCIAL: @erdemcodes</div>
             </div>
             <div className='model'>
               <span className='first'>
-                <span>Y</span>
-                <span>a</span>
-                <span>s</span>
+                <span>E</span>
+                <span>r</span>
+                <span>d</span>
+                <span>e</span>
                 <span>m</span>
-                <span>e</span>
-                <span>e</span>
-                <span>n</span>
               </span>
               <span className='last'>
-                <span>T</span>
+                <span>E</span>
+                <span>l</span>
+                <span>v</span>
                 <span>a</span>
-                <span>r</span>
-                <span>i</span>
-                <span>q</span>
+                <span>n</span>
               </span>
             </div>
           </div>
@@ -56,7 +54,8 @@ const Model = () => {
         <div className='container'>
           <div className='row'>
             <h2 className='title'>
-              The insiration behind the artwork & <br /> what it means.
+              Animasyon gecisi icin yaptigim site & <br /> dummy text ile
+              harmanlandi.
             </h2>
             <p>
               Contrary to popular belief, Lorem Ipsum is not simply random text.

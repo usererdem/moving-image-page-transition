@@ -1,5 +1,8 @@
-import * as React from "react";
+import React from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+
+const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 
 const Home = ({ imageDetails, image }) => (
   <>
@@ -16,17 +19,25 @@ const Home = ({ imageDetails, image }) => (
               }}>
               <div className='frame'>
                 <Link to={`/model/erdem-elvan`}>
-                  <img src={require("../images/test.jpg")} alt='Erdem Elvan' />
+                  <motion.img
+                    whileHover={{ scale: 1.1 }}
+                    transition={transition}
+                    src={require("../images/test.jpg")}
+                    alt='Erdem Elvan'
+                  />
                 </Link>
               </div>
             </div>
-            <div className='information'>
+            <motion.div
+              exit={{ opacity: 0 }}
+              transition={transition}
+              className='information'>
               <div className='title'>Erdem Elvan</div>
               <div className='location'>
-                <span>identify as</span>
-                <span>attack helicopter</span>
+                <span>to</span>
+                <span>believe</span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
