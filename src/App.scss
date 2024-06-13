@@ -226,7 +226,10 @@ main {
     .top-row {
       height: 50vh;
       width: 100%;
-      align-items: flex-end;
+      align-items: center;
+      @media (min-width: 1024px) {
+        align-items: flex-end;
+      }
       .top {
         .details {
           display: flex;
@@ -256,6 +259,9 @@ main {
               font-size: 160px;
             }
             @media (max-width: 1023px) {
+              font-size: 120px;
+            }
+            @media (max-width: 768px) {
               font-size: 64px;
             }
           }
