@@ -52,9 +52,9 @@ const Header = () => {
         <div className='row space-between'>
           <div className='logo'>
             <Link to='/'>
-              <motion.span variants={textColorVariants} className='logo-text'>
-                SUCH ANIMATION MUCH WOW
-              </motion.span>
+              <motion.div variants={borderColorVariants} className='menu'>
+                <motion.div className='menu-text'>HOME</motion.div>
+              </motion.div>
             </Link>
           </div>
           <motion.div variants={borderColorVariants} className='menu'>
