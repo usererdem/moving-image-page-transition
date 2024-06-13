@@ -11,11 +11,6 @@ const Header = () => {
     notScrolled: { backgroundColor: "transparent" },
   };
 
-  const textColorVariants = {
-    scrolled: { color: "#ffffff" },
-    notScrolled: { color: "#1e1f13" },
-  };
-
   const borderColorVariants = {
     scrolled: { borderColor: "#ffffff" },
     notScrolled: { borderColor: "#1e1f13" },
