@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import ClickMe from "../components/clickMe";
 
 const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
 
@@ -39,6 +40,7 @@ const Home = ({ imageDetails, image }) => (
                 <span>believe</span>
               </div>
             </motion.div>
+            <ClickMe />
           </div>
         </div>
       </div>

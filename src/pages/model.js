@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-import { motion } from "framer-motion";
+import { motion, useTransform, useScroll } from "framer-motion";
 //Components
 import ScrollForMore from "../components/scrollForMore";
 // Hooks
@@ -41,13 +41,26 @@ const letter = {
 
 const Model = ({ imageDetails }) => {
   const { width } = useWindowDimensions();
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 1], [1.1, 1.25]);
+
+  const [canScroll, setCanScroll] = useState(false);
+
+  // Check later for the image stutter bug when activating no-scroll while animating
+  /* useEffect(() => {
+    if (canScroll === false) {
+      document.querySelector("body").classList.add("no-scroll");
+    } else {
+      document.querySelector("body").classList.remove("no-scroll");
+    }
+  }, [canScroll]); */
 
   // Function to determine the 'y' value based on the width
   const getYValue = (width) => {
     if (width > 1440) {
-      return -700;
+      return -600;
     } else if (width > 1024) {
-      return -500;
+      return -400;
     } else if (width > 768) {
       return -300;
     } else {
@@ -57,11 +70,12 @@ const Model = ({ imageDetails }) => {
 
   return (
     <motion.div
+      onAnimationComplete={() => setCanScroll(true)}
       initial='initial'
       animate='animate'
       exit='exit'
       className='single'>
-      <div className='container fluid'>
+      <div className='container '>
         <div className='row center top-row'>
           <div className='top'>
             <motion.div
@@ -76,7 +90,7 @@ const Model = ({ imageDetails }) => {
                 <span>💻 Coder</span>
                 <span>🥐 Baker</span>
               </div>
-              <div className='mua'>SOCIAL: @erdemcodes</div>
+              <div className='mua'>@erdemcodes</div>
             </motion.div>
             <motion.div className='model'>
               <motion.span variants={firstName} className='first'>
@@ -114,6 +128,7 @@ const Model = ({ imageDetails }) => {
                 className='thumbnail-single'>
                 <div className='frame-single'>
                   <motion.img
+                    style={{ scale: scale }}
                     initial={{ scale: 1.1 }}
                     animate={{
                       transition: { delay: 0.2, ...transition },
@@ -127,6 +142,7 @@ const Model = ({ imageDetails }) => {
             </div>
           </div>
           <ScrollForMore />
+          
         </div>
       </div>
       <div className='detailed-information'>

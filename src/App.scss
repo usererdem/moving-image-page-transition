@@ -28,7 +28,9 @@ body {
     width: 300%;
   }
   &.no-scroll {
-    overflow-y: hidden;
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
   }
 }
 
@@ -67,6 +69,10 @@ body {
 }
 
 //Header
+
+.header {
+  transition: background-color 0.4s ease;
+}
 
 .container {
   flex-grow: 1;
@@ -121,16 +127,28 @@ header {
         cursor: pointer;
         border-radius: 100%;
         border: 1px solid $black;
-        height: 80px;
-        width: 80px;
+        height: 60px;
+        width: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: 0.3s ease-in-out;
-        &:hover {
-          color: $white;
-          background: $black;
+        background: #1e1f13;
+        @media (min-width: 1024px) {
+          height: 80px;
+          width: 80px;
         }
+        &:hover {
+          .menu-text {
+            color: $black;
+          }
+
+          background: $white;
+        }
+      }
+      .menu-text {
+        color: $white;
+        transition: 0.3s ease-in-out;
       }
     }
   }
@@ -144,6 +162,7 @@ main {
       align-items: center;
       .image-container {
         position: relative;
+        overflow: hidden;
         .thumbnail {
           overflow: hidden;
           position: relative;
@@ -165,6 +184,28 @@ main {
             span:nth-child(2) {
               margin-left: 8px;
             }
+          }
+        }
+        .click-me {
+          position: absolute;
+          bottom: 35%;
+          right: 5%;
+          transform: translateX(-10%);
+          z-index: 20;
+          color: #1e1f13;
+          pointer-events: none;
+
+          @media (min-width: 576px) {
+            bottom: 5%;
+          }
+          @media (min-width: 1024px) {
+            bottom: 5%;
+          }
+
+          .text {
+            background-color: #a48951;
+            border-radius: 100%;
+            padding: 2rem;
           }
         }
       }
@@ -205,7 +246,10 @@ main {
             font-size: 224px;
             font-family: "Maragsa";
             @media (max-width: 1440px) {
-              font-size: 128px;
+              font-size: 160px;
+            }
+            @media (max-width: 1023px) {
+              font-size: 64px;
             }
           }
         }
@@ -235,8 +279,8 @@ main {
       }
       .scroll-for-more {
         position: absolute;
-        bottom: 200px;
-        left: 200px;
+        bottom: 20%;
+        left: 10%;
         z-index: 20;
         .icon {
           svg {
@@ -255,21 +299,30 @@ main {
 }
 
 .detailed-information {
-  margin-top: 200px;
+  margin-top: 230px;
   height: 600px;
+  @media (max-width: 1440px) {
+    margin-top: 30px;
+  }
   .container {
     .row {
       justify-content: space-between;
       align-items: flex-start;
+      gap: 10px;
+      @media (max-width: 1023px) {
+        flex-direction: column;
+      }
       h2 {
         font-size: 28px;
+        min-width: 40%;
+        margin: 0;
       }
       p {
         font-family: "Helvetica Neue";
         font-size: 16;
         line-height: 28px;
         font-weight: 400;
-        width: 800px;
+        margin: 0;
       }
     }
   }

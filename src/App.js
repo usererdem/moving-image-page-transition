@@ -14,11 +14,14 @@ import Model from "./pages/model";
 import Header from "./components/header";
 // Styles
 import "./App.scss";
+// Hooks
+import useWindowDimensions from "./hooks/useWindowDimension";
 
 const AppRoutes = ({ imageDetails }) => {
   const location = useLocation();
+
   return (
-    <AnimatePresence mode='wait'>
+    <AnimatePresence /* initial={false} */ mode='wait'>
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home imageDetails={imageDetails} />} />
         <Route
@@ -31,8 +34,9 @@ const AppRoutes = ({ imageDetails }) => {
 };
 
 function App() {
+  const { width } = useWindowDimensions();
   const imageDetails = {
-    width: 524,
+    width: width > 575 ? 524 : 300,
     height: 650,
   };
 
